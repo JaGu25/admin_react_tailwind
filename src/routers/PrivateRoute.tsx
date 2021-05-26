@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react'
 import { Redirect, Route } from 'react-router-dom'
-import DashboardLayout from '../components/layouts/DashboardLayout'
+import DashboardLayout from '../components/layouts/admin/DashboardLayout'
 import { AuthContext } from '../store/auth/authContext'
 
 const PrivateRoute = ({ component: Component, ...rest }: any): any => {
