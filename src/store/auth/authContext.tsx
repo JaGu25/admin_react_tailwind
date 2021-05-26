@@ -2,6 +2,7 @@ import React, { useReducer } from 'react'
 import AuthReducer from './authReducer'
 import { types } from '../types'
 import { logInService } from './../../services/api/auth'
+import axios from "../../config/axios";
 
 interface Props {
   children: React.ReactNode
@@ -11,21 +12,26 @@ const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('use
 
 const initialState = {
   user: user ?? null,
-  isLogged: false
+  isLogged: false,
+  checking: true
 }
 
 interface IAuth {
   user: any
   logOut: () => void,
   logIn: (email: string, password: string) => void,
-  isLogged: Boolean
+  checkingToken: () => void,
+  isLogged: Boolean,
+  checking: Boolean
 }
 
 export const AuthContext = React.createContext<IAuth>({
   user: initialState,
   logOut: () => { },
   logIn: () => { },
-  isLogged: false
+  checkingToken: () => { },
+  isLogged: false,
+  checking: true
 })
 
 const UserProvider = ({ children }: Props): any => {
@@ -48,6 +54,23 @@ const UserProvider = ({ children }: Props): any => {
     })
   }
 
+  const checkingToken = (): any => {
+    return new Promise(async (resolve, reject): Promise<any> => {
+      try {
+        const res = await axios().get('/refresh');
+        dispatch({
+          type: types.AUTH_LOGIN,
+          payload: res.data.data
+        })
+        localStorage.setItem('user', JSON.stringify(res.data.data))
+      } catch (error) {
+        dispatch({
+          type: types.AUTH_NOT_AUTHORIZED,
+        })
+      }
+    })
+  }
+
   const logOut = (): void => {
     dispatch({
       type: types.AUTH_LOGOUT
@@ -59,9 +82,11 @@ const UserProvider = ({ children }: Props): any => {
     <AuthContext.Provider
       value={{
         user: state.user,
+        isLogged: state.isLogged,
+        checking: state.checking,
         logIn,
-        logOut,
-        isLogged: state.isLogged
+        checkingToken,
+        logOut
       }}
     >
       {children}

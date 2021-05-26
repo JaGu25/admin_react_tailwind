@@ -16,7 +16,7 @@ const AppRouter = (): any => {
       <Switch>
         <PublicRoute exact path='/login' component={Login} />
         <PublicRoute exact path='/' component={Home} />
-        < PrivateRoute exact path="/admin"
+        <PrivateRoute exact path="/admin"
                         component={Dashboard}
                     />
         <Redirect to="/"></Redirect>

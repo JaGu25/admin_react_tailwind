@@ -7,7 +7,14 @@ const reducer: React.Reducer<any, any> = (state, action) => {
       return {
         ...state,
         user: action.payload,
-        isLogged: true
+        isLogged: true,
+        checking: false
+      }
+    case types.AUTH_NOT_AUTHORIZED:
+      return {
+        ...state,
+        isLogged: false,
+        checking: false
       }
     case types.AUTH_LOGOUT:
       return {

@@ -68,7 +68,7 @@ const Header = ({ isOpen, setIsOpen }) => {
                         >
                             <button
                                 onClick={handleLogout}
-                                className="block text-left w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-400 hover:text-white cursor-pointer"
+                                className="block text-left w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-400 hover:text-white cursor-pointer focus:outline-none"
                             >Cerrar Sesión</button>
                         </div> : null
                     }

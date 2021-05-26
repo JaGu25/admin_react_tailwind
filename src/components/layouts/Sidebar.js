@@ -28,7 +28,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                     <NavLink
                         activeClassName="active-className"
                         className="flex items-center duration-200 mt-4 py-2 px-6 border-l-4 border-gray-900 text-gray-500 hover:bg-gray-600 hover:bg-opacity-25 hover:text-gray-100"
-                        to={"/admin/dashboard"}
+                        to={"/admin"}
 
                     >
                         <svg
