@@ -1,0 +1,59 @@
+{
+    "name": "react-type-tailwind",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@hookform/resolvers": "^2.5.1",
+        "@testing-library/jest-dom": "^5.11.9",
+        "@testing-library/react": "^11.2.5",
+        "@testing-library/user-event": "^12.8.3",
+        "@types/jest": "^26.0.20",
+        "@types/node": "^12.20.5",
+        "@types/react": "^17.0.3",
+        "@types/react-dom": "^17.0.2",
+        "firebase": "^8.3.1",
+        "postcss-import": "^14.0.2",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-hook-form": "^7.1.1",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "4.0.3",
+        "typescript": "^4.2.3",
+        "web-vitals": "^1.1.1",
+        "yup": "^0.32.9"
+    },
+    "scripts": {
+        "start": "react-scripts start && npm run watch:css",
+        "build": "npm run build:css && react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "watch:css": "postcss src/assets/styles/tailwind.css -o src/assets/styles/output.css -w",
+        "build:css": "postcss src/assets/styles/tailwind.css -o src/assets/styles/output.css --env production"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@types/react-router-dom": "^5.1.7",
+        "autoprefixer": "^10.0.4",
+        "postcss": "^8.1.14",
+        "postcss-cli": "^8.3.0",
+        "postcss-preset-env": "^6.7.0",
+        "tailwindcss": "^2.0.1"
+    }
+}

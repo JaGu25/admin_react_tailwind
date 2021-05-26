@@ -1,0 +1,7 @@
+.input-form {
+    @apply mt-1 block w-full rounded-md border-gray-200 outline-none bg-gray-100 py-1 px-2 text-gray-600;
+}
+
+.invalid {
+    @apply border-red-500 border;
+}
